@@ -1,0 +1,40 @@
+<table mat-table [dataSource]="vendors" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="vendorId">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="vendorName">
+      <th mat-header-cell *matHeaderCellDef> Vendor name </th>
+      <td mat-cell *matCellDef="let element"> {{element.vendorName}} </td>
+    </ng-container>
+  
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.vendorAddress}} </td>
+    </ng-container>
+  
+       <!-- delete button Column -->
+       <ng-container matColumnDef="actions">
+        <th mat-header-cell  *matHeaderCellDef > Actions </th>
+
+        <td mat-cell *matCellDef="let element; let i = index;" > 
+          <app-overlay-dialoge [vendor]="element" [vendorIndx]="i"></app-overlay-dialoge>
+          <button mat-raised-button color="warn" class="left-padding" (click)="deleteVendor(element.id,i)">Delete</button>
+        </td>
+        
+      </ng-container>
+
+      
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator (page)="paginationChanged($event)" [pageSizeOptions]="[10,20,50]" [length]=pageLength showFirstLastButtons></mat-paginator>

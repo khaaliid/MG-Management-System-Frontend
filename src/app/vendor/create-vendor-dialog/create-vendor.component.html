@@ -1,0 +1,28 @@
+<form [formGroup]="vendorCreationForm" (ngSubmit)="addOrUpdateVendor($event,vendorCachedIndx)"> 
+  <mat-form-field *ngIf="vendor">
+    <input  matInput formControlName="id" hidden="true">
+  </mat-form-field>
+    <p>
+      <mat-form-field class="mat-form-field-left-padding" appearance="outline">
+        <mat-label>Provider Name</mat-label>
+        <input id="vendorName" formControlName="vendorName" matInput placeholder="Name">
+        <mat-icon matSuffix>person_outline</mat-icon>
+        <mat-hint>Factory/provider/place name</mat-hint>
+        <mat-error *ngIf="validationError('vendorName', 'required')">Name is required</mat-error>
+      </mat-form-field>
+    </p>
+    
+    <mat-form-field class="mat-form-field-left-padding" appearance="outline">
+      <mat-icon matSuffix>person_outline</mat-icon>
+      <mat-label>Textarea</mat-label>
+      <textarea id="address" formControlName="vendorAddress" matInput></textarea>
+      <mat-error *ngIf="validationError('vendorAddress', 'required')">Address is required</mat-error>
+    </mat-form-field>
+    
+    <div class="mat-form-field-left-padding">
+      <button type="submit" mat-fab color="accent" aria-label="add vendor" [disabled]="!vendorCreationForm.valid">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    </form>
+
