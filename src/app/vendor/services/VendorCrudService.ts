@@ -14,7 +14,7 @@ export class VendorCrudService {
     
 
     addVendor(vendor: Vendor) { //the component that wants to update something, calls this fn.        
-        this.http.post<Vendor>(Constants.VENDOR_ENDPOINT_BASE+"findOrCreateVendor",vendor,{observe: 'response'}).subscribe({
+        this.http.post<Vendor>(Constants.VENDOR_ENDPOINT+"findOrCreateVendor",vendor,{observe: 'response'}).subscribe({
             next: response => {                           //next() callback
               console.log('Add Vendor response : '+JSON.stringify(response));
               if(response && response.body){
@@ -32,7 +32,7 @@ export class VendorCrudService {
 
     
     updateVendor(vendor: Vendor, cacheIndex: number) { //the component that wants to update something, calls this fn.        
-        this.http.patch<Vendor>(Constants.VENDOR_ENDPOINT_BASE+"/"+vendor.id,vendor,{observe: 'response'}).subscribe({
+        this.http.patch<Vendor>(Constants.VENDOR_ENDPOINT+vendor.id,vendor,{observe: 'response'}).subscribe({
             next: response => {                           //next() callback
               console.log('update vendor response : '+JSON.stringify(response));
               if(response && response.body){
@@ -49,7 +49,7 @@ export class VendorCrudService {
     }
 
     deleteVendor(vendorId: number, cacheIndex: number) { //the component that wants to update something, calls this fn.        
-        this.http.delete(Constants.VENDOR_ENDPOINT_BASE+"/"+vendorId,{observe: 'response'}).subscribe({
+        this.http.delete(Constants.VENDOR_ENDPOINT+vendorId,{observe: 'response'}).subscribe({
             next: response => {                           //next() callback
               console.log('update vendor response : '+JSON.stringify(response));
               if(response && response.body){
@@ -71,12 +71,12 @@ export class VendorCrudService {
 
 
     getAllVendors(offset:number): Observable<any> { //the component that wants to update something, calls this fn.
-        return this.http.get(Constants.VENDOR_ENDPOINT_BASE+"?offset="+offset);
+        return this.http.get(Constants.VENDOR_ENDPOINT+"?offset="+offset);
         
     }
 
     getVendorPage(pageNo: number, pageSize: number, sortBy: String): Observable<Vendor[]>{
-      return this.http.get<Vendor[]>(Constants.VENDOR_ENDPOINT_BASE+"/page?pageNo="+pageNo+"&pageSize="+pageSize+"&sortBy="+sortBy);
+      return this.http.get<Vendor[]>(Constants.VENDOR_ENDPOINT+"page?pageNo="+pageNo+"&pageSize="+pageSize+"&sortBy="+sortBy);
     }
 
 

@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="onToggleSidenav()">menu</mat-icon>
+      </button>
+      <h1>MG</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button *ngIf="!this.isAuthenticated" [routerLink]="'/login'"> login </a>
+        <a mat-button *ngIf="this.isAuthenticated" (click)="logout()"> logout </a>
+        <a mat-button [routerLink]="'/vendor'"> vendor </a>
+        <a mat-button [routerLink]="'/product'"> products </a>
+        <a mat-button [routerLink]="'/'"> Home </a>
+  
+      </div>
+    </mat-toolbar-row>
+  
+    <mat-toolbar-row>
+        <span style="font-size: 8px;">Shop management system!</span>
+      </mat-toolbar-row>
+  </mat-toolbar>
+

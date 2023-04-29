@@ -1,5 +1,6 @@
-<app-overlay-dialoge></app-overlay-dialoge>
-
-<app-vendors-viewer [vendors]="vendors"></app-vendors-viewer>
-
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <app-header></app-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</mat-sidenav-container>

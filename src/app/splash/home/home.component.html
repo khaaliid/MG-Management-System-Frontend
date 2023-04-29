@@ -1,0 +1,6 @@
+<ul >
+    <span *ngFor="let module of modules">
+        <li *hasPermission="module.allowed_roles"><a mat-button routerLink="/{{ module.name }}"> {{ module.name }} </a></li>
+    </span>
+    <li *hasPermission="['super_admin']"><a mat-button (click)='openKeycloack()'> Users </a></li>
+</ul>

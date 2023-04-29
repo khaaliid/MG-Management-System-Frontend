@@ -1,0 +1,24 @@
+<form [formGroup]="productCreationForm" (ngSubmit)="addOrUpdateProduct($event,productCachedIndx)"> 
+    <mat-form-field *ngIf="product">
+      <input  matInput formControlName="productId" id="productId" hidden="true">
+    </mat-form-field>
+      <p>
+        <mat-form-field class="mat-form-field-left-padding" appearance="outline">
+          <mat-label>Product Name</mat-label>
+          <input id="productName" formControlName="productName" matInput placeholder="Name">
+          <mat-icon matSuffix>person_outline</mat-icon>
+          <mat-hint>product name</mat-hint>
+          <mat-error *ngIf="validationError('productName', 'required')">Name is required</mat-error>
+        </mat-form-field>
+      </p>
+      
+
+      
+      <div class="mat-form-field-left-padding">
+        <button type="submit" mat-fab color="accent" aria-label="add product" [disabled]="!productCreationForm.valid">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      </form>
+  
+  
