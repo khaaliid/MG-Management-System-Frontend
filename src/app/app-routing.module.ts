@@ -7,6 +7,7 @@ import { HomeComponent } from './splash/home/home.component';
 import { LoginComponent } from './splash/login/login.component';
 import { VendorManagementComponent } from './vendor/vendor-management/vendor-management.component';
 import { ProductManagementComponent } from './product/product-management/product-management.component';
+import { CreateProductComponent } from './product/create-product-component/create-product-component.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [IsSignedInGuard] },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'logout', component: LoginComponent, canActivate: [IsSignedInGuard] },
   { path: 'vendor', component: VendorManagementComponent, canActivate: [IsSignedInGuard] },
   { path: 'product', component: ProductManagementComponent, canActivate: [IsSignedInGuard] },
+  { path: 'addProduct', component: CreateProductComponent, canActivate: [IsSignedInGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

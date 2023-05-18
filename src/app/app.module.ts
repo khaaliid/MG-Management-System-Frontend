@@ -35,6 +35,7 @@ import { ProductsViewerComponent } from './product/products-viewer/products-view
 import { ProductManagementComponent } from './product/product-management/product-management.component';
 import { ProductOverlayDialogeComponent } from './product/product-overlay-dialoge/product-overlay-dialoge.component';
 import { CreateProductComponent } from './product/create-product-component/create-product-component.component';
+import { ProductCategoriesManagementComponent } from './product/product-categories/product-categories-management/product-categories-management.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CreateProductComponent } from './product/create-product-component/creat
     ProductsViewerComponent,
     ProductManagementComponent,
     ProductOverlayDialogeComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    ProductCategoriesManagementComponent
   ],
   imports: [
     BrowserModule,
