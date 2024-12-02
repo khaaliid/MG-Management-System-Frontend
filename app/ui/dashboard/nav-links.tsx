@@ -16,6 +16,7 @@ import {
       href: '/pos',
       icon: DocumentDuplicateIcon,
     },
+    { name: 'Inventory', href: '/Inventory', icon: UserGroupIcon },
     { name: 'vendors', href: '/vendors', icon: UserGroupIcon },
   ];
   
